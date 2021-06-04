@@ -11,7 +11,7 @@ function getTitle(){
         figlet.textSync(
             'Weather app',
             {
-                horizontalLayout: 'full',
+                horizontalLayout: 'half',
                 font: 'ogre'
             }
         )
@@ -76,12 +76,13 @@ function DeleteCity(list1){
 }
 
 
-DeleteCity(TestList)
-
-
 
 
 module.exports = {
     Table,
-    getTitle
+    getTitle, 
+    SelectAction,
+    AddCity,
+    UpdateCity,
+    DeleteCity
 }
