@@ -1,5 +1,4 @@
 const {printTable} = require('console-table-printer')
-console 
 const {Table, getTitle} = require('./view')
 
 
