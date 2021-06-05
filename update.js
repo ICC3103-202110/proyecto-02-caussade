@@ -16,7 +16,22 @@ async function Data(string, list){
         MainList[3].push(Min.toFixed(1))
         return list
     }
+    else if(string === 'Update City'){
+        const update = await UpdateCity(MainList[0])
+        const city = update['Update']
+        const position = MainList[0].indexOf(city)
+        MainList[1].splice(position,1)
+        MainList[2].splice(position,1)
+        MainList[3].splice(position,1)
+        const Temp = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
+        const Max = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
+        const Min = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
+        MainList[1].splice(position,0,(Temp.toFixed(1)))
+        MainList[2].splice(position,0,(Max.toFixed(1)))
+        MainList[3].splice(position,0,(Min.toFixed(1)))
+        return list
 
+    }
 }
 
 

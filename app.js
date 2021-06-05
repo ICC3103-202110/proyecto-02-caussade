@@ -15,7 +15,7 @@ async function app(){
         console.log(getTitle(getTitle))
         //printTable(Table(1,2,3,4))
         printTable(Table("","","",""))
-        while (i<2){
+        while (i<6){
             const Select = await SelectAction()
             const String1 = Select['select']
             const Check = await Data(String1,MainList)
