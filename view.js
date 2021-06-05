@@ -30,13 +30,15 @@ function Table(name,temp,max,min){
 function TableList(list){
     var len = list[0].length
     i=0
+    var FullTable = []
     while (i<len){
-        var Table2 = [
+        var Table2 = 
         {"Name": list[0][i], "Temp": list[1][i],
-        "Max": list[2][i], "Min": list[3][i]}]
+        "Max": list[2][i], "Min": list[3][i]}
+        FullTable.push(Table2)
         i++
     }
-    return Table2
+    return FullTable
 }
 
 
