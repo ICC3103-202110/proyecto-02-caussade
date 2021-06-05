@@ -19,8 +19,8 @@ async function app(){
             const String1 = Select['select']
             const Check = await Data(String1,MainList)
             console.log(Check)
-            //console.clear()
-            //console.log(getTitle(getTitle))
+            console.clear()                             /*comented to wach values change*/
+            console.log(getTitle(getTitle))
             printTable(TableList(MainList))
             i++;
     }
