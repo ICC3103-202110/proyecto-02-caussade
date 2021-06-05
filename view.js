@@ -27,13 +27,13 @@ function Table(name,temp,max,min){
 }
 
 
-function TableList(listName,ListTemp,ListMax,ListMin){
-    var len = ListTemp.lenght
+function TableList(list){
+    var len = list[0].length
     i=0
     while (i<len){
         var Table2 = [
-        {"Name": ListName[i], "Temp": ListTemp[i],
-        "Max": ListMax[i], "Min": ListMin[i]}]
+        {"Name": list[0][i], "Temp": list[1][i],
+        "Max": list[2][i], "Min": list[3][i]}]
         i++
     }
     return Table2
