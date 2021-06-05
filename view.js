@@ -3,7 +3,6 @@ const chalk = require('chalk')
 const figlet = require('figlet')
 const inquirer = require('inquirer')
 
-const TestList = ['hola','chao','hola']
 
 
 function getTitle(){
@@ -25,6 +24,19 @@ function Table(name,temp,max,min){
     "Max": max, "Min": min},
     ]
     return Table1
+}
+
+
+function TableList(listName,ListTemp,ListMax,ListMin){
+    var len = ListTemp.lenght
+    i=0
+    while (i<len){
+        var Table2 = [
+        {"Name": ListName[i], "Temp": ListTemp[i],
+        "Max": ListMax[i], "Min": ListMin[i]}]
+        i++
+    }
+    return Table2
 }
 
 
@@ -80,6 +92,7 @@ function DeleteCity(list1){
 
 module.exports = {
     Table,
+    TableList,
     getTitle, 
     SelectAction,
     AddCity,
