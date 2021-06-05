@@ -13,7 +13,6 @@ async function app(){
         console.clear()
         let i = 0
         console.log(getTitle(getTitle))
-        //printTable(Table(1,2,3,4))
         printTable(Table("","","",""))
         while (i<6){
             const Select = await SelectAction()

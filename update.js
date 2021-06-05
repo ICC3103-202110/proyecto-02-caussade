@@ -32,6 +32,17 @@ async function Data(string, list){
         return list
 
     }
+    else if(string === 'Delete City'){
+        const delete1 = await DeleteCity(MainList[0])
+        const city = delete1['Delete']
+        const position = MainList[0].indexOf(city)
+        MainList[0].splice(position,1)
+        MainList[1].splice(position,1)
+        MainList[2].splice(position,1)
+        MainList[3].splice(position,1)
+        return list
+
+    }
 }
 
 
