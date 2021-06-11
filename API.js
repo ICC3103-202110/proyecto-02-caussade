@@ -1,13 +1,20 @@
 const axios = require('axios')
-const city = "L"
+
+
+/*const city = "London"
 const URL = "http://api.openweathermap.org/data/2.5/weather?q="+
-    city+"&appid=b3d305332d3d20eef4a7576772b761fe&units=metric"
+            city+"&appid=b3d305332d3d20eef4a7576772b761fe&units=metric"*/
 
 
-
-async function CallTemp(){
+async function CallTemp(city){
+    //const CityString = String(city)
+    let URL = "http://api.openweathermap.org/data/2.5/weather?q="+
+            city+"&appid=b3d305332d3d20eef4a7576772b761fe&units=metric"
     var ListTemp = []
     let response = await axios.get(URL)
+                    .catch(function (error) {
+                    console.log("Enter a valid city")
+                    })
     ListTemp.push(response.data.main.temp)
     ListTemp.push(response.data.main.temp_min)
     ListTemp.push(response.data.main.temp_max)
@@ -16,30 +23,14 @@ async function CallTemp(){
         
 }
 
-async function TestTemp(){
-    const AllTemp = await CallTemp()
+/*async function TestTemp(){
+    const AllTemp = await CallTemp('Santiago')
     console.log(AllTemp)
-
 }
 
-TestTemp()
+TestTemp()*/
 
 
-/* async function CallTemp(){
-    var ListTemp = []
-    axios.get(URL)
-        .then(response => {
-            //var temp = response.data['main']['temp']
-            ListTemp.push(response.data.main.temp)
-            ListTemp.push(response.data.main.temp_min)
-            ListTemp.push(response.data.main.temp_max)
-            //console.log(response.data.main);
-            //console.log(ListTemp)
-            //return ListTemp
-
-        },err => {
-            console.log(err)
-        })
-        
-        
-}*/
+module.exports = {
+    CallTemp
+}

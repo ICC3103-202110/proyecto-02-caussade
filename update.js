@@ -1,5 +1,7 @@
 const {SelectAction, AddCity,
     UpdateCity,DeleteCity} = require('./view')
+const {CallTemp} = require('./API')
+
 
 var MainList = [[],[],[],[]]
 
@@ -7,13 +9,14 @@ async function Data(string, list){
     if(string === 'Add City'){
         const add = await AddCity()
         const city = add['Add']
-        const Temp = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
-        const Max = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
-        const Min = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
+        const TempCity = await CallTemp(String(city))
+        const Temp = TempCity[0]    
+        const Max =  TempCity[2]      
+        const Min = TempCity[1]  
         MainList[0].push(city)
-        MainList[1].push(Temp.toFixed(1))
-        MainList[2].push(Max.toFixed(1))
-        MainList[3].push(Min.toFixed(1))
+        MainList[1].push(Temp)
+        MainList[2].push(Max)
+        MainList[3].push(Min)
         return list
     }
     else if(string === 'Update City'){
@@ -23,9 +26,10 @@ async function Data(string, list){
         MainList[1].splice(position,1)
         MainList[2].splice(position,1)
         MainList[3].splice(position,1)
-        const Temp = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
-        const Max = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
-        const Min = Math.floor((Math.random()*30) + 1) + (Math.random()*1 + 0);
+        const TempCity = await CallTemp(String(city))
+        const Temp = TempCity[0]
+        const Max = TempCity[2]
+        const Min = TempCity[1]
         MainList[1].splice(position,0,(Temp.toFixed(1)))
         MainList[2].splice(position,0,(Max.toFixed(1)))
         MainList[3].splice(position,0,(Min.toFixed(1)))
@@ -48,5 +52,5 @@ async function Data(string, list){
 
 module.exports = {
     Data,
-    MainList  
+    MainList
 }
