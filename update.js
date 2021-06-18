@@ -10,13 +10,27 @@ async function Data(string, list){
         const add = await AddCity()
         const city = add['Add']
         const TempCity = await CallTemp(String(city))
-        const Temp = TempCity[0]    
-        const Max =  TempCity[2]      
-        const Min = TempCity[1]  
-        MainList[0].push(city)
-        MainList[1].push(Temp)
-        MainList[2].push(Max)
-        MainList[3].push(Min)
+        console.log(TempCity)
+        if (TempCity[0] === 'n'){
+            const Temp = TempCity[0]    
+            const Max =  TempCity[2]      
+            const Min = TempCity[1]  
+            MainList[0].push(city)
+            MainList[1].push(Temp)
+            MainList[2].push(Max)
+            MainList[3].push(Min)
+            MainList[0].splice(-1,1)
+            MainList[1].splice(-1,1)
+            MainList[2].splice(-1,1)
+            MainList[3].splice(-1,1)
+        }
+        else{const Temp = TempCity[0]    
+            const Max =  TempCity[2]      
+            const Min = TempCity[1]  
+            MainList[0].push(city)
+            MainList[1].push(Temp)
+            MainList[2].push(Max)
+            MainList[3].push(Min) }
         return list
     }
     else if(string === 'Update City'){

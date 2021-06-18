@@ -7,14 +7,17 @@ async function CallTemp(city){
     var ListTemp = []
     let response = await axios.get(URL)
                     .catch(function (error) {
-                        //return "Enter a valid city"
-                        console.log("Enter a valid city")
+                        var response = { data: { main: { temp: 'n',
+                             temp_min: 'n', temp_max: 'n'}} }
+                        //console.log(response.data.main.temp)
+                        //console.log("Enter a valid city")
+                        return response
                     })
     ListTemp.push(response.data.main.temp)
     ListTemp.push(response.data.main.temp_min)
     ListTemp.push(response.data.main.temp_max)
-    return ListTemp       
-}
+    return ListTemp      
+}   
 
 
 
